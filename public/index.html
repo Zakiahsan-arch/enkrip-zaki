@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Enkrip Zaki</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main>
+    <h1>Enkrip Zaki 🔐</h1>
+    <p>Pilih metode enkripsi, masukkan teks, lalu klik tombol.</p>
+
+    <!-- Input teks -->
+    <label for="text">Teks</label><br>
+    <textarea id="text" rows="4" cols="50" placeholder="Masukkan teks di sini"></textarea><br><br>
+
+    <!-- Pilihan metode -->
+    <label for="method">Metode</label><br>
+    <select id="method">
+      <option value="base64">Base64</option>
+      <option value="caesar">Caesar</option>
+      <option value="aes">AES</option>
+      <option value="rot13">ROT13</option>
+    </select><br><br>
+
+    <!-- Input kunci/shift (opsional) -->
+    <label for="key">Kunci (AES)</label><br>
+    <input id="key" type="password" placeholder="Masukkan kunci..."><br><br>
+
+    <label for="shift">Shift (Caesar)</label><br>
+    <input id="shift" type="number" value="3"><br><br>
+
+    <!-- Tombol aksi -->
+    <button id="encBtn">Enkripsi</button>
+    <button id="decBtn">Dekripsi</button>
+    <button id="copyBtn">Salin hasil</button><br><br>
+
+    <!-- Output -->
+    <label for="output">Hasil</label><br>
+    <textarea id="output" rows="4" cols="50" readonly></textarea>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
