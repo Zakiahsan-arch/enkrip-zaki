@@ -1,46 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Enkrip Zaki</title>
-  <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <title>Enkrip Ringan </title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main>
-    <h1>Enkrip Zaki 🔐</h1>
-    <p>Pilih metode enkripsi, masukkan teks, lalu klik tombol.</p>
+  <h1>Enkrip </h1>
+  <p>Pilih metode enkripsi, masukkan teks, lalu klik tombol.</p>
 
-    <!-- Input teks -->
-    <label for="text">Teks</label><br>
-    <textarea id="text" rows="4" cols="50" placeholder="Masukkan teks di sini"></textarea><br><br>
+  <label for="text">Teks</label>
+  <textarea id="text" placeholder="Masukkan teks di sini"></textarea>
 
-    <!-- Pilihan metode -->
-    <label for="method">Metode</label><br>
-    <select id="method">
-      <option value="base64">Base64</option>
-      <option value="caesar">Caesar</option>
-      <option value="aes">AES</option>
-      <option value="rot13">ROT13</option>
-    </select><br><br>
+  <label for="method">Metode</label>
+  <select id="method">
+    <option value="base64">Base64</option>
+    <option value="caesar">Caesar</option>
+    <option value="aes">AES</option>
+    <option value="rot13">ROT13</option>
+  </select>
 
-    <!-- Input kunci/shift (opsional) -->
-    <label for="key">Kunci (AES)</label><br>
-    <input id="key" type="password" placeholder="Masukkan kunci..."><br><br>
+  <label for="key">Kunci (AES)</label>
+  <input type="text" id="key" placeholder="Masukkan kunci...">
 
-    <label for="shift">Shift (Caesar)</label><br>
-    <input id="shift" type="number" value="3"><br><br>
+  <label for="shift">Shift (Caesar)</label>
+  <input type="number" id="shift" value="3">
 
-    <!-- Tombol aksi -->
+  <div class="buttons">
     <button id="encBtn">Enkripsi</button>
     <button id="decBtn">Dekripsi</button>
-    <button id="copyBtn">Salin hasil</button><br><br>
+    <button onclick="copyResult()">Salin hasil</button>
+  </div>
 
-    <!-- Output -->
-    <label for="output">Hasil</label><br>
-    <textarea id="output" rows="4" cols="50" readonly></textarea>
-  </main>
+  <label for="output">Hasil</label>
+  <textarea id="output" readonly></textarea>
 
-  <script src="./app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
