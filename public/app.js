@@ -4,6 +4,7 @@ const outputEl = document.getElementById('output');
 const shiftEl = document.getElementById('shift');
 const keyEl = document.getElementById('key');
 
+// Enkripsi
 document.getElementById('encBtn').addEventListener('click', () => {
   const text = textEl.value;
   const method = methodEl.value;
@@ -24,6 +25,7 @@ document.getElementById('encBtn').addEventListener('click', () => {
   outputEl.value = result;
 });
 
+// Dekripsi
 document.getElementById('decBtn').addEventListener('click', () => {
   const text = textEl.value;
   const method = methodEl.value;
@@ -36,8 +38,12 @@ document.getElementById('decBtn').addEventListener('click', () => {
   } else if (method === 'caesar') {
     result = caesarDecrypt(text, shift);
   } else if (method === 'aes') {
-    const bytes = CryptoJS.AES.decrypt(text, key);
-    result = bytes.toString(CryptoJS.enc.Utf8);
+    try {
+      const bytes = CryptoJS.AES.decrypt(text, key);
+      result = bytes.toString(CryptoJS.enc.Utf8);
+    } catch (e) {
+      result = 'Kunci salah atau format tidak valid';
+    }
   } else if (method === 'rot13') {
     result = caesarDecrypt(text, 13);
   }
@@ -45,6 +51,15 @@ document.getElementById('decBtn').addEventListener('click', () => {
   outputEl.value = result;
 });
 
+// Salin hasil
+function copyResult() {
+  const output = document.getElementById('output');
+  output.select();
+  document.execCommand('copy');
+  alert('✅ Hasil disalin ke clipboard!');
+}
+
+// Fungsi Caesar
 function caesarEncrypt(text, shift) {
   return text.split('').map(char => {
     const code = char.charCodeAt(0);
